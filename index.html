@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>リベ イベント フィルター｜使い方</title>
-<meta name="description" content="リベシティのイベントカレンダーを、自分の地域・興味の言葉・カテゴリーで絞り込む無料のツール(Tampermonkey 用)。選んだ予定はGoogleカレンダーの作成画面で開けます。">
+<meta name="description" content="リベシティのイベントカレンダーを、自分の地域・興味の言葉・カテゴリーで絞り込む無料のツール(Tampermonkey 用)。選んだ予定は押すだけでGoogleカレンダーに入ります。">
 <link rel="icon" href="icon128.png">
 <link rel="stylesheet" href="manual.css">
 <style>
@@ -40,7 +40,7 @@
   <section class="intro">
     <p class="eyebrow">無料・Tampermonkey 用</p>
     <h1>見たいイベントだけ、<br class="mobile-only">すぐ見つかる。</h1>
-    <p class="lead">リベシティのイベントカレンダーを、自分の地域・興味の言葉・カテゴリーで絞り込みます。気になる予定はチェックして、Googleカレンダーの作成画面で開くだけ。保存はご自身で押すので、勝手に予定が入ることはありません。</p>
+    <p class="lead">リベシティのイベントカレンダーを、自分の地域・興味の言葉・カテゴリーで絞り込みます。気になる予定はチェックして緑のボタンを押すだけで、Googleカレンダーの専用カレンダーに入ります。ふだんの予定やほかのカレンダーには触れません。</p>
     <figure class="hero-visual">
       <img src="img/guide-sync-hero.webp" width="1536" height="1024" alt="遊牧民くんが左のイベントカレンダーから右のカレンダーへ予定を移す流れを案内している絵">
       <figcaption>リベシティの予定 → 自分の条件で絞り込み → Googleカレンダー</figcaption>
@@ -48,7 +48,7 @@
     <div class="flow" aria-label="使い始めるまでの3ステップ">
       <div class="flow-step"><span class="step-no">1</span><b>入れる</b><span>Tampermonkey を入れてから、このツールを入れます(5分)。</span></div>
       <div class="flow-step"><span class="step-no">2</span><b>条件を決めて探す</b><span>リベシティの右下の丸いボタンで一覧を開き、地域・興味の言葉・カテゴリーで探します。</span></div>
-      <div class="flow-step"><span class="step-no">3</span><b>カレンダーに入れる</b><span>チェックして緑のボタン。Googleカレンダーの作成画面が開くので「保存」を押します。</span></div>
+      <div class="flow-step"><span class="step-no">3</span><b>カレンダーに入れる</b><span>チェックして緑のボタンを押すだけ。何件でも1回で入ります(初めての時だけ Google の許可)。</span></div>
     </div>
   </section>
 
@@ -182,19 +182,21 @@
 
       <section class="guide-section" id="sync">
 <h2>Googleカレンダーに入れる</h2>
-<p>Googleカレンダーの「予定の作成画面」を、日時・場所・説明を書き込んだ状態で開きます。最後の「保存」はご自身で押します。</p>
+<p>選んだ予定を、押すだけで Googleカレンダーに入れます(v0.7.0 から)。何件選んでも1回押すだけです。入れ先は、このツールが作る専用のカレンダー<b>「リベイベント絞り込み」</b>です。</p>
 <ol class="num-steps">
 <li><span class="n">1</span><span>予定にチェックを入れて、緑の<b>「選んだ○件をGoogleカレンダーに入れる」</b>を押す</span></li>
-<li><span class="n">2</span><span>1件だけなら、そのまま新しいタブで作成画面が開く。2件以上なら、一覧の上に選んだ予定が並ぶので、<b>「開く」</b>を1件ずつ押す<small>まとめて開くとブラウザに止められることがあるので、1件ずつにしています。押した予定は「✓ 開いた」に変わります。</small></span></li>
-<li><span class="n">3</span><span>開いた作成画面で<span class="ul">日時・場所・説明</span>を確かめて、<b>「保存」</b>を押す</span></li>
+<li><span class="n">2</span><span><b>初めての時だけ</b>、Google の画面が新しいタブで開く。自分のアカウントを選び、<b>「許可」</b>(または「続行」)を押す<small>許可が済むとその画面は自動で閉じます。2回目からは、この手順はありません。</small></span></li>
+<li><span class="n">3</span><span>パネルの下に<span class="ul">「新規○ / 更新○ / 登録済み○」</span>と出たら完了。Googleカレンダーが新しいタブで開くので、入ったか確かめる</span></li>
 </ol>
 <ul class="checklist">
+  <li>入るのは、許可の画面で選んだ<b>ご自身の Google アカウント</b>です。使う人それぞれのカレンダーに、それぞれ「リベイベント絞り込み」が1つ作られます</li>
+  <li>同じ予定を2回押しても、2つにはなりません(「登録済み」と数えます)。リベシティ側で日時や題名が変わった予定は、押し直すと書き換わります</li>
   <li>日時は日本時間で入ります(パソコンの時間帯の設定に左右されません)</li>
-  <li>説明欄に、リベシティのイベントのURL・開催の種類と場所・受付の状態・当たった興味の言葉が入ります</li>
-  <li>題名の頭の ★ は、興味の言葉に当たった印です</li>
-  <li>入るのは、その Chrome でログインしている Google アカウントのカレンダーです。カレンダーの選び先・色・通知は作成画面で選べます</li>
+  <li>説明欄に、開催の種類と場所・受付の状態・当たった興味の言葉・リベシティのイベントカレンダーのURLが入ります。題名の頭の ★ は、興味の言葉に当たった印です</li>
+  <li>色は一覧と同じ色で入ります。通知は「条件」→「Googleカレンダー」で、開始の何分前かを決められます(最初は60分前)</li>
+  <li>専用のカレンダーなので、Googleカレンダーの左の一覧でチェックを外すと、リベの予定だけまとめて隠せます</li>
 </ul>
-<div class="tip">同じ予定を2回保存すると、Googleカレンダーに2つ入ります。入れたかどうかはGoogleカレンダーの方で確かめてください。</div>
+<div class="tip">このツールが触れるのは、このツールが作った「リベイベント絞り込み」の中だけです。ふだんの予定や、ほかのカレンダーは見ることも書き換えることもできません(Google の許可がその範囲だけです)。</div>
 </section>
 
       <section class="guide-section" id="daily">
@@ -218,7 +220,7 @@
       <section class="guide-section" id="colors">
         <div class="section-head"><div><h2>色の決まり</h2><p>迷ったときは、左にあるものほど優先と覚えてください。</p></div><img src="img/yubokumin-book.webp" width="118" height="118" alt="本で色の決まりを説明する遊牧民くん" loading="lazy"></div>
         <div class="priority"><div class="priority-item"><b>1. ★興味の言葉の色</b><span>AIなど、当たったグループの色</span></div><div class="arrow">›</div><div class="priority-item"><b>2. 種類の色</b><span>オフライン・オンラインの色</span></div><div class="arrow">›</div><div class="priority-item"><b>3. 既定の色</b><span>どちらも「なし」のとき</span></div></div>
-        <div class="tip">色は一覧の色分けに使います。Googleカレンダーの作成画面には色が引き継がれないので、色を付けたい時は作成画面で選んでください。</div>
+        <div class="tip">Googleカレンダーにも、一覧と同じ色で入ります。</div>
       </section>
 
       <section class="guide-section" id="hikkoshi">
@@ -236,7 +238,8 @@
           <tr><th>右下の丸いボタンが出ない</th><td>入れ方の②「ユーザー スクリプトを許可する」がオンか確かめて、リベシティの画面でブラウザの更新ボタン(↻)を押してください。</td></tr>
           <tr><th>一覧が0件のまま</th><td>リベシティにログインしているか確かめ、一覧の下の「更新」を押してください。それでも0件なら、条件の地域や興味の言葉を少し広げるか、上の切り替えを「読み取った全予定」にします。リベシティのイベントカレンダーを開くと、開いている月がそのまま一覧に入ります。</td></tr>
           <tr><th>「更新」で裏のタブが開く</th><td>リベシティを見えない枠の中で読めなかった時は、裏でタブを開いて読み、読み終わったら自動で閉じます。そのままお待ちください。</td></tr>
-          <tr><th>作成画面が開かない</th><td>ブラウザがポップアップを止めていないか、アドレス欄の右端を確かめてください。「開く」は1件ずつ押してください。</td></tr>
+          <tr><th>Google の許可の画面を閉じてしまった</th><td>もう一度、緑のボタンを押してください。許可の画面がまた開きます。</td></tr>
+          <tr><th>「リベイベント絞り込み」を消してしまった</th><td>そのまま緑のボタンを押せば、新しく作り直して入れます。別の Google アカウントに入れ直したい時は、「条件」→「Googleカレンダー」→「Googleとの接続を解除」を押してから、緑のボタンを押します。</td></tr>
           <tr><th>🐒 のアイコンを押すと青い帯が出る</th><td>「ユーザー スクリプトを許可する」がまだ、という合図です。帯を押すと設定が開くので、スイッチをオンにします。
             <img class="tm-shot small" src="img/tm_menu.jpg" alt="許可がまだのパソコンの Tampermonkey のメニュー。上の青い帯と、アクセス権なしの行を赤枠で示す" loading="lazy"></td></tr>
           <tr><th>急に動かない・表示がおかしい</th><td>① <code>chrome://extensions</code> を開き、右上の「デベロッパー モード」をオン → 左上の「更新」を押す ② リベシティに戻ってブラウザの更新ボタン(↻)を押す。
@@ -249,9 +252,9 @@
         <h2>書き換える範囲</h2>
         <ul class="checklist">
           <li>リベシティのイベントカレンダーを読むだけで、リベシティには何も書き込まない</li>
-          <li>Googleカレンダーには、ご自身が作成画面で「保存」を押した予定だけが入る。このツールが勝手に入れたり消したりはしない</li>
+          <li>Googleカレンダーは、このツールが作った「リベイベント絞り込み」の中だけを書き換える。ふだんの予定・ほかのカレンダーは見えないし触れない。予定を消すこともしない</li>
           <li>条件・一覧・プロフィール画像は、そのパソコンの Chrome の中(Tampermonkey の保存場所)だけに置き、外へは送らない</li>
-          <li>ログイン情報・Googleの許可は預からない</li>
+          <li>ログイン情報は預からない。Google の許可(1時間で切れる合鍵)は、そのパソコンの Tampermonkey の保存場所にだけ置き、Google 以外へは送らない</li>
         </ul>
       </section>
     </article>
